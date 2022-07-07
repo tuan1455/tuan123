@@ -5,7 +5,9 @@
   <a href="#about">About</a>
   <a href="#contact">Contact</a>
   <input type="text" placeholder="Search..">
-  <a>{{$data}}</a>
+  <a>{{posts.DSSanPham}}</a>
+   <a>{{test.data.DSSanPham}}</a>
+  <button @click="say('bye')">Say bye</button>
  </div>
 </template>
 
@@ -14,20 +16,28 @@ import * as url from "url";
 import fetch from "node-fetch";
 import axios from "axios";
 
-  export default {
+export default {
+  bb:123,
+  methods: {
+  async say(message) {
+    alert(message);
+    this.test = 'http://localhost:60298/SanPhams/DanhSachSp';
+    this.test = await axios.get('http://localhost:60298/SanPhams/DanhSachSp');
+    axios.get("http://localhost:60298/Loais/Create1?tenLoai=tuan123")
+  }
+},
     data() {
+      pp:[]
       return {
         posts: [],
+        test :'http://localhost:60298/SanPhams/DanhSachSp1',
       };
     },
     async fetch() {
-      this.posts = await fetch(
-      'http://localhost:60298/SanPhams/DanhSachSp'
-    ).then((res) => res.json())
+      this.posts = await fetch(this.test).then((res) => res.json())
+      {return await fetch(this.test).then((res) => res.json())}
     },
-
-  }
-
+}
 </script>
 <style>
 /* Add a black background color to the top navigation bar */
