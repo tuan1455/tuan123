@@ -4,7 +4,7 @@
    <label>Ten San Pham</label>
    <input v-model="tenSp" type="text" placeholder="TenSp">
    <label>Loai San Pham</label>
-   <input v-model="tenSp" type="text" placeholder="Loai san pham" required>
+   <input v-model="tenSp" type="text" placeholder="TenSp">
  </div>
 </template>
 

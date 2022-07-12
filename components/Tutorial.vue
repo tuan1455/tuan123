@@ -5,7 +5,7 @@
   <a>{{posts.DSSanPham}}</a>
    <a>{{test.data.DSSanPham}}</a>
   <button @click="say('bye')">Say bye</button>
-  <router-link to="/test">Home</router-link>
+  <router-link to="/TaoSanPham">Home</router-link>
  </div>
 </template>
 
