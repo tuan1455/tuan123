@@ -1,21 +1,26 @@
 <!-- Please remove this file from your project -->
 <template>
  <div class>
-   <label>Ten San Pham</label>
-   <input v-model="tenSp" type="text" placeholder="TenSp">
-   <label>Loai San Pham</label>
-   <input v-model="tenSp" type="text" placeholder="TenSp">
+  <form @submit.prevent="submit">
+   <label>Ten Loai</label>
+   <input v-model="tenSp" type="text" placeholder="Ten loai" required>
+    <button type="submit">Tao san pham</button>
+  </form>
  </div>
 </template>
 
 <script>
 
 export default {
-  data() {
+  data(){
     return {
       tenSp: ""
     }
-  }
+  },
+  methods : {
+submit(){alert("gdfg")}
+  },
+
 }
 </script>
 <style>

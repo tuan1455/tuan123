@@ -1,12 +1,15 @@
 <!-- Please remove this file from your project -->
 <template>
+  <div>
   <div class="topnav">
-  <input type="text" placeholder="Search..">
-  <a>{{posts.DSSanPham}}</a>
-   <a>{{test.data.DSSanPham}}</a>
-  <button @click="say('bye')">Say bye</button>
-  <router-link to="/TaoSanPham">Home</router-link>
- </div>
+    <input type="text" placeholder="Search.." />
+    <a>{{ posts.DSSanPham }}</a>
+    <a>{{ test.data.DSSanPham }}</a>
+    <button @click="say('bye')">Say bye</button>
+    <router-link to="/TaoSanPham">Home</router-link>  </div>
+  <div v-for="item in posts.DSSanPham " :key="item">
+  {{ item.id }}
+  </div></div>
 </template>
 
 <script>
@@ -16,33 +19,37 @@ import axios from "axios";
 
 export default {
   methods: {
-  async say(message) {
-    alert(message);
-    this.test = await axios.get('http://localhost:60298/SanPhams/DanhSachSp');
-    axios.get("http://localhost:60298/Loais/Create1?tenLoai=tuan123");
-    console.log(this.test);
-  }
-},
-    data() {
-      return {
-        posts: [],
-        test :{
-          data :[{
-          DSSanPham: [
-        {
-            id: [],
-            TenSP: [],
-            idcategory: []
-        }
-    ]}]
-
-},
-      };
+    async say(message) {
+      alert(message);
+      this.test = await axios.get("http://localhost:60298/SanPhams/DanhSachSp");
+      axios.get("http://localhost:60298/Loais/Create1?tenLoai=tuan123");
+      console.log(this.test);
     },
-    async fetch() {
-      this.posts = await fetch('http://localhost:60298/SanPhams/DanhSachSp').then((res) => res.json())
-    },
-}
+  },
+  data() {
+    return {
+      posts: [],
+      test: {
+        data: [
+          {
+            DSSanPham: [
+              {
+                id: [],
+                TenSP: [],
+                idcategory: [],
+              },
+            ],
+          },
+        ],
+      },
+    };
+  },
+  async fetch() {
+    this.posts = await fetch("http://localhost:60298/SanPhams/DanhSachSp").then(
+      (res) => res.json()
+    );
+  },
+};
 </script>
 <style>
 /* Add a black background color to the top navigation bar */
@@ -70,12 +77,12 @@ export default {
 
 /* Style the "active" element to highlight the current page */
 .topnav a.active {
-  background-color: #2196F3;
+  background-color: #2196f3;
   color: white;
 }
 
 /* Style the search box inside the navigation bar */
-.topnav input[type=text] {
+.topnav input[type="text"] {
   float: right;
   padding: 6px;
   border: none;
@@ -86,7 +93,8 @@ export default {
 
 /* When the screen is less than 600px wide, stack the links and the search field vertically instead of horizontally */
 @media screen and (max-width: 600px) {
-  .topnav a, .topnav input[type=text] {
+  .topnav a,
+  .topnav input[type="text"] {
     float: none;
     display: block;
     text-align: left;
@@ -94,7 +102,7 @@ export default {
     margin: 0;
     padding: 14px;
   }
-  .topnav input[type=text] {
+  .topnav input[type="text"] {
     border: 1px solid #ccc;
   }
 }
