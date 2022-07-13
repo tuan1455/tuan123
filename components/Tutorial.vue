@@ -7,8 +7,11 @@
     <a>{{ test.data.DSSanPham }}</a>
     <button @click="say('bye')">Say bye</button>
     <router-link to="/TaoSanPham">Home</router-link>  </div>
-  <div v-for="item in posts.DSSanPham " :key="item">
-  {{ item.id }}
+  <div class="main" v-for="item in posts.DSSanPham " :key="item">
+  <div><img src="https://upload.wikimedia.org/wikipedia/commons/a/ae/Nuxt_logo.svg" alt="Trulli" width="100" height="50
+"></div>
+  <div>{{ item.TenSP }}</div>
+  <div>{{ item.id }}</div>
   </div></div>
 </template>
 
@@ -52,6 +55,16 @@ export default {
 };
 </script>
 <style>
+
+.main {
+  width: 75%;
+  text-align: center;
+  padding: 15px;
+  margin-top:19px !important;
+  border: 5px solid rgb(9, 218, 9);
+  display: block;
+  margin: 0 auto;
+}
 /* Add a black background color to the top navigation bar */
 .topnav {
   overflow: hidden;
