@@ -2,7 +2,7 @@
 <template>
   <div>
   <div class="topnav">
-    <input type="text" placeholder="Search.." />
+    <input @keyup="tttt" type="text" placeholder="Search.."  />
     <a>{{ posts.DSSanPham }}</a>
     <a>{{ test.data.DSSanPham }}</a>
     <button @click="say('bye')">Say bye</button>
@@ -28,6 +28,7 @@ export default {
       axios.get("http://localhost:60298/Loais/Create1?tenLoai=tuan123");
       console.log(this.test);
     },
+    tttt(){}
   },
   data() {
     return {
